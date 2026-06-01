@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ta Te Ti Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <main class="card">
+
+        <header class="header">
+            <h1>Ta Te Ti</h1>
+            <p class="subtitle">Multijugador en tiempo real · hasta 10 partidas simultáneas</p>
+        </header>
+
+        <section class="panel">
+
+            <div class="panel-item">
+                <span class="panel-label">Conexión</span>
+                <span id="connection-status" class="badge badge--connecting">
+                    Conectando...
+                </span>
+            </div>
+
+            <div class="panel-item">
+                <span class="panel-label">Sala</span>
+                <span id="room-info" class="panel-value">
+                    —
+                </span>
+            </div>
+
+            <div class="panel-item">
+                <span class="panel-label">Jugador</span>
+                <span id="player-info" class="panel-value">
+                    —
+                </span>
+            </div>
+
+        </section>
+
+        <!-- LOBBY: elegir sala -->
+        <section id="lobby-view" class="lobby-view">
+
+            <h2 class="lobby-title">Elegí una sala</h2>
+            <p class="lobby-subtitle">Cada sala es una partida independiente para 2 jugadores</p>
+
+            <div id="rooms-grid" class="rooms-grid"></div>
+
+            <p id="lobby-status" class="lobby-status">
+                Cargando salas...
+            </p>
+
+        </section>
+
+        <!-- JUEGO -->
+        <section id="game-view" class="game-view hidden">
+
+            <div class="game-panel-extra">
+                <div class="panel-item">
+                    <span class="panel-label">Turno</span>
+                    <span id="turn-info" class="panel-value turn-x">—</span>
+                </div>
+            </div>
+
+            <section class="scores">
+
+                <div class="score score-x">
+                    <span class="score-symbol">X</span>
+                    <span id="score-x" class="score-value">0</span>
+                    <span class="score-label">Victorias</span>
+                </div>
+
+                <div class="score score-draw">
+                    <span class="score-symbol">=</span>
+                    <span id="score-draws" class="score-value">0</span>
+                    <span class="score-label">Empates</span>
+                </div>
+
+                <div class="score score-o">
+                    <span class="score-symbol">O</span>
+                    <span id="score-o" class="score-value">0</span>
+                    <span class="score-label">Victorias</span>
+                </div>
+
+            </section>
+
+            <p id="game-status" class="game-status">
+                Esperando jugadores...
+            </p>
+
+            <div id="board" class="board">
+
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+
+            </div>
+
+            <div class="game-actions">
+                <button id="reset" class="btn-primary" type="button">
+                    Nueva Partida
+                </button>
+                <button id="leave-room" class="btn-secondary" type="button">
+                    Volver al lobby
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="win-modal" class="modal hidden" aria-hidden="true">
+
+        <div class="modal-backdrop"></div>
+
+        <div class="modal-content" role="dialog" aria-modal="true">
+
+            <div id="modal-icon" class="modal-icon">🏆</div>
+
+            <h2 id="modal-title" class="modal-title">
+                ¡Victoria!
+            </h2>
+
+            <p id="modal-message" class="modal-message">
+                Ganó X
+            </p>
+
+            <button id="modal-close" class="btn-primary" type="button">
+                Continuar
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

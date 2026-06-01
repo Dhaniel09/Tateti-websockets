@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  tateti:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tateti-websocket
+    env_file:
+      - .env
+    ports:
+      - "${PORT}:${PORT}"
+    restart: unless-stopped
